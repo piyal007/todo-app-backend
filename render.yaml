@@ -1,11 +1,10 @@
 services:
   - type: web
     name: rust-backend
-    env: rust
-    buildCommand: cargo build --release
-    startCommand: ./target/release/rust_backend
+    env: docker
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: MONGODB_URI
         sync: false
-      - key: RUST_LOG
-        value: info
+      - key: PORT
+        value: 8080
